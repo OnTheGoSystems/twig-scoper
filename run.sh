@@ -1,3 +1,2 @@
 #!/bin/sh
-
-php ./php-scoper.phar
+vendor/bin/php-scoper add-prefix

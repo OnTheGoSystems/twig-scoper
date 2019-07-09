@@ -1,0 +1,22 @@
+{
+    "name": "toolset/twig-prefixer",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "jan",
+            "email": "jan.s@onthegosystems.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "humbug/php-scoper": "^1.0@dev"
+    },
+    "description": "",
+  "config": {
+    "vendor-dir": "vendor/",
+    "platform": {
+      "php": "7.2"
+    }
+  }
+}

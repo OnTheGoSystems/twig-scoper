@@ -1,1 +1,4 @@
 php-scoper.phar
+
+/vendor/
+/build/
