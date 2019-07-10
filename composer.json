@@ -10,7 +10,8 @@
     ],
     "minimum-stability": "dev",
     "require": {
-        "humbug/php-scoper": "^1.0@dev"
+        "humbug/php-scoper": "^1.0@dev",
+        "twig/twig" : "1.42.2"
     },
     "description": "",
   "config": {

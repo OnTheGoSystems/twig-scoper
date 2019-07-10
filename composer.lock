@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1c131034001421bac4f87733706a5496",
+    "content-hash": "8865a18b525f3b5b3ceceac9cf0c80bb",
     "packages": [
         {
             "name": "humbug/php-scoper",
@@ -85,12 +85,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/JetBrains/phpstorm-stubs.git",
-                "reference": "1aec496a2cf02e4899295b6bdb7f95160980102d"
+                "reference": "ea81f1a055a2d7d52f7df497cf3f274f8fe10253"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/JetBrains/phpstorm-stubs/zipball/1aec496a2cf02e4899295b6bdb7f95160980102d",
-                "reference": "1aec496a2cf02e4899295b6bdb7f95160980102d",
+                "url": "https://api.github.com/repos/JetBrains/phpstorm-stubs/zipball/ea81f1a055a2d7d52f7df497cf3f274f8fe10253",
+                "reference": "ea81f1a055a2d7d52f7df497cf3f274f8fe10253",
                 "shasum": ""
             },
             "require-dev": {
@@ -121,7 +121,7 @@
                 "stubs",
                 "type"
             ],
-            "time": "2019-07-09T13:32:14+00:00"
+            "time": "2019-07-10T11:41:18+00:00"
         },
         {
             "name": "nikic/php-parser",
@@ -679,6 +679,72 @@
                 "standards"
             ],
             "time": "2019-06-13T11:15:36+00:00"
+        },
+        {
+            "name": "twig/twig",
+            "version": "v1.42.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/twigphp/Twig.git",
+                "reference": "21707d6ebd05476854805e4f91b836531941bcd4"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/21707d6ebd05476854805e4f91b836531941bcd4",
+                "reference": "21707d6ebd05476854805e4f91b836531941bcd4",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "symfony/polyfill-ctype": "^1.8"
+            },
+            "require-dev": {
+                "psr/container": "^1.0",
+                "symfony/debug": "^2.7",
+                "symfony/phpunit-bridge": "^3.4.19|^4.1.8|^5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.42-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Twig_": "lib/"
+                },
+                "psr-4": {
+                    "Twig\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com",
+                    "homepage": "http://fabien.potencier.org",
+                    "role": "Lead Developer"
+                },
+                {
+                    "name": "Armin Ronacher",
+                    "email": "armin.ronacher@active-4.com",
+                    "role": "Project Founder"
+                },
+                {
+                    "name": "Twig Team",
+                    "homepage": "https://twig.symfony.com/contributors",
+                    "role": "Contributors"
+                }
+            ],
+            "description": "Twig, the flexible, fast, and secure template language for PHP",
+            "homepage": "https://twig.symfony.com",
+            "keywords": [
+                "templating"
+            ],
+            "time": "2019-06-18T15:35:16+00:00"
         }
     ],
     "packages-dev": [],
