@@ -1,4 +1,4 @@
-# Twig prefixer
+# Twig scoper
 
 Utility that uses [php-scoper](https://github.com/humbug/php-scoper) to add a 
 namespace to [Twig](https://github.com/twigphp/Twig) 1.42.*

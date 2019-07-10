@@ -1,5 +1,5 @@
 {
-    "name": "toolset/twig-prefixer",
+    "name": "otgs/twig-scoper",
     "type": "library",
     "license": "MIT",
     "authors": [
