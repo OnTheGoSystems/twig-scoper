@@ -18,11 +18,15 @@ The (dark) magic happens in [scoper.inc.php](./scoper.inc.php)
 
 ## Usage
 
-Running `vendor/bin/php-scoper add-prefix --prefix MySafeNamespace` will produce the scoped version of 
-Twig in the `build` directory.
+Running this command will produce the scoped version of 
+Twig in the `build` directory:
+
+```bash
+vendor/bin/php-scoper add-prefix --prefix MySafeNamespace
+```
 
 Alternatively, you can run the `run-toolset.sh` script if you're dealing with
-Toolset development directly ([see the script](./run-toolset.sh) for further 
+[Toolset](https://toolset.com) development directly ([see the script](./run-toolset.sh) for further 
 details).
 
 ## Considerations
@@ -31,3 +35,5 @@ Obviously, the patching is ridiculously hacky and may not work well between
 different Twig versions (that's also why is the version hardcoded in `composer.json`).
 **Be very careful if you upgrade Twig and test everything before putting it into
 production.** Otherwise, no guarantees are provided! 
+
+Made with :heart: for [Toolset](http://toolset.com) and [OnTheGoSystems](http://onthegosystems.com).
