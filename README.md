@@ -18,7 +18,7 @@ The (dark) magic happens in [scoper.inc.php](./scoper.inc.php)
 
 ## Usage
 
-Running `vendor/bin/php-scoper add-prefix` will produce the scoped version of 
+Running `vendor/bin/php-scoper add-prefix --prefix MySafeNamespace` will produce the scoped version of 
 Twig in the `build` directory.
 
 Alternatively, you can run the `run-toolset.sh` script if you're dealing with

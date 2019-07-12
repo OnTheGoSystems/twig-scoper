@@ -23,8 +23,6 @@ namespace {
 	use const OTGS\Toolset\TwigPrefixer\TWIG_BASE_DIR;
 
 	return [
-		// The prefix configuration. If a non null value will be used, a random prefix will be generated.
-		'prefix' => 'OTGS\Toolset',
 
 		// For more see: https://github.com/humbug/php-scoper#finders-and-paths
 		'finders' => [

@@ -4,7 +4,7 @@
 
 TOOLSET_COMMON_PATH="${1:-../tcl-override/toolset-common}"
 
-vendor/bin/php-scoper -vv --no-interaction add-prefix
+vendor/bin/php-scoper -vv --no-interaction add-prefix --prefix 'OTGS\Toolset'
 rm -rf "${TOOLSET_COMMON_PATH}/lib/Twig/*"
 cp -r ./build/* "${TOOLSET_COMMON_PATH}/lib/Twig"
 cd "${TOOLSET_COMMON_PATH}"
