@@ -22,12 +22,15 @@ Running this command will produce the scoped version of
 Twig in the `build` directory:
 
 ```bash
-vendor/bin/php-scoper add-prefix --prefix MySafeNamespace
+TWIG_SCOPER_PREFIX='My\Safe\Namespace' vendor/bin/php-scoper add-prefix 
 ```
+
+Note that using `vendor/bin/php-scoper add-prefix 'My\Safe\Namespace'` will not work properly because the prefix
+needs to be accessed dynamically from the `scoper.inc.php` config file. 
 
 Alternatively, you can run the `run-toolset.sh` script if you're dealing with
 [Toolset](https://toolset.com) development directly ([see the script](./run-toolset.sh) for further 
-details).
+details). For [WPML](https://wpml.org) development, use [`run-wpml-core.sh`](./run-wpml-core.sh).
 
 ## Considerations
 

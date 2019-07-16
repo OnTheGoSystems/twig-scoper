@@ -129,12 +129,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/nikic/PHP-Parser.git",
-                "reference": "3f718ee2c3a22b656773476f19dd8d72a50e2413"
+                "reference": "2e2954ccdf36874fcbaca8caf63dc642c911e3e0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/3f718ee2c3a22b656773476f19dd8d72a50e2413",
-                "reference": "3f718ee2c3a22b656773476f19dd8d72a50e2413",
+                "url": "https://api.github.com/repos/nikic/PHP-Parser/zipball/2e2954ccdf36874fcbaca8caf63dc642c911e3e0",
+                "reference": "2e2954ccdf36874fcbaca8caf63dc642c911e3e0",
                 "shasum": ""
             },
             "require": {
@@ -172,7 +172,7 @@
                 "parser",
                 "php"
             ],
-            "time": "2019-06-30T10:13:28+00:00"
+            "time": "2019-07-14T08:56:13+00:00"
         },
         {
             "name": "ocramius/package-versions",
@@ -279,12 +279,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/console.git",
-                "reference": "d39c11c9a7cd30edfdcd35d0e9b26f79077d8610"
+                "reference": "0a8153b7ec0b549a386d040278a0b6d6f18b5760"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/console/zipball/d39c11c9a7cd30edfdcd35d0e9b26f79077d8610",
-                "reference": "d39c11c9a7cd30edfdcd35d0e9b26f79077d8610",
+                "url": "https://api.github.com/repos/symfony/console/zipball/0a8153b7ec0b549a386d040278a0b6d6f18b5760",
+                "reference": "0a8153b7ec0b549a386d040278a0b6d6f18b5760",
                 "shasum": ""
             },
             "require": {
@@ -346,7 +346,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2019-07-09T07:02:15+00:00"
+            "time": "2019-07-10T18:47:17+00:00"
         },
         {
             "name": "symfony/filesystem",
