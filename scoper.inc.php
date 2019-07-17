@@ -8,7 +8,7 @@ namespace OTGS\TwigPrefixer {
 
 	function endsWith( $haystack, $needle ) {
 		$length = strlen( $needle );
-		if ( $length == 0 ) {
+		if ( 0 === $length ) {
 			return true;
 		}
 
@@ -140,20 +140,26 @@ namespace {
 						$contents
 					);
 
-					// Also handle the occurrence in the is_safe_callback array element.
+					// Handle the occurrence in the is_safe_callback array element.
 					$contents = preg_replace(
 						'/(new ' . getFormattedPrefix( 1 ) . '\\\\Twig\\\\TwigFilter\(\s*\'[^\']+\'\s*,\s*\'.*twig_[^\']+\',\s*\[[^\]]*,\s*\'is_safe_callback\'\s*=>\s*\')((_)?twig_[^\']+\'\s*\]\s*\))/m',
 						'$1' . getFormattedPrefix( 2 ) . '\\\\\\\\$2',
 						$contents
 					);
 
-					// Also handle the occurrence in the preg_replace_callback.
+					// Handle the occurrence in the preg_replace_callback.
 					$contents = preg_replace(
 						'/(preg_replace_callback.*,\s*\')(.+\'.*;)/m',
 						'$1' . getFormattedPrefix( 2 ) . '\\\\\\\\$2',
 						$contents
 					);
 
+					// Handle the occurrence in the array_walk_recursive.
+					$contents = preg_replace(
+						'/(array_walk_recursive.*,\s*\')(.+\'.*;)/m',
+						'$1' . getFormattedPrefix( 2 ) . '\\\\\\\\$2',
+						$contents
+					);
 				}
 
 				return $contents;
