@@ -16,7 +16,20 @@ namespace OTGS\TwigPrefixer {
 	}
 
 	function getPrefix() {
-		return getenv( 'TWIG_SCOPER_PREFIX' );
+		global $argv;
+		static $prefix = null;
+
+		if ( $prefix ) {
+			return $prefix;
+		}
+
+		foreach ( $argv as $arg ) {
+			if ( 0 === strpos( $arg, '--prefix=' ) ) {
+				$prefix = trim( explode( '=', $arg )[1] );
+			}
+		}
+
+		return $prefix;
 	}
 
 	function getFormattedPrefix( $backslashDuplicationFactor = 0, $includeInitialBackslash = true ) {
@@ -94,7 +107,7 @@ namespace {
 			 * Patcher for \$prefix\Twig\Node\ModuleNode.
 			 */
 			function ( string $filePath, string $prefix, string $contents ): string {
-				if ( \OTGS\TwigPrefixer\endsWith( $filePath, 'src/Node/ModuleNode.php' ) ) {
+				if ( \OTGS\TwigPrefixer\endsWith( $filePath, 'src' . DIRECTORY_SEPARATOR . 'Node' . DIRECTORY_SEPARATOR . 'ModuleNode.php' ) ) {
 					// Fix template compilation - add the namespace to the template file.
 					$contents = preg_replace(
 						'/(compileClassHeader\s*\([^\)]+\)\s*{\s*\s*\$compiler\s*->\s*write\s*\(\s*)"\\\\n\\\\n"(\s*\)\s*;)/m',
@@ -120,7 +133,7 @@ namespace {
 			 */
 			function ( string $filePath, string $prefix, string $contents ): string {
 				// Fix the usage of global twig_* and _twig_* functions.
-				if ( \OTGS\TwigPrefixer\endsWith( $filePath, 'src/Extension/CoreExtension.php' ) ) {
+				if ( \OTGS\TwigPrefixer\endsWith( $filePath, 'src' . DIRECTORY_SEPARATOR . 'Extension' . DIRECTORY_SEPARATOR . 'CoreExtension.php' ) ) {
 					$contents = preg_replace(
 						'/(new ' . getFormattedPrefix( 1 ) . '\\\\Twig\\\\TwigFilter\(\s*\'[^\']+\'\s*,\s*\')((_)?twig_[^\']+\')/m',
 						'$1' . getFormattedPrefix( 2 ) . '\\\\\\\\$2',
