@@ -8,7 +8,7 @@ TWIG_SCOPER_PREFIX="${2:-OTGS\Toolset}"
 echo "Clearing the build directory..."
 rm -rf ./build/*
 
-TWIG_SCOPER_PREFIX="${TWIG_SCOPER_PREFIX}" vendor/humbug/php-scoper/bin/php-scoper -vv --no-interaction add-prefix
+vendor/humbug/php-scoper/bin/php-scoper -vv --no-interaction add-prefix --prefix="${TWIG_SCOPER_PREFIX}"
 
 echo "Removing Twig from Toolset Common..."
 rm -rf "${TOOLSET_COMMON_PATH}/lib/Twig/*"
