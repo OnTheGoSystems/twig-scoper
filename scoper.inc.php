@@ -147,6 +147,13 @@ namespace {
 						$contents
 					);
 
+					// Also handle the occurrence in the preg_replace_callback.
+					$contents = preg_replace(
+						'/(preg_replace_callback.*,\s*\')(.+\'.*;)/m',
+						'$1' . getFormattedPrefix( 2 ) . '\\\\\\\\$2',
+						$contents
+					);
+
 				}
 
 				return $contents;
