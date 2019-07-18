@@ -61,6 +61,10 @@ namespace {
 
 		'prefix' => getPrefix(),
 
+		'whitelist-global-constants' => false,
+		'whitelist-global-classes' => false,
+		'whitelist-global-functions' => false,
+
 		// For more see: https://github.com/humbug/php-scoper#finders-and-paths
 		'finders' => [
 			Finder::create()->files()->in( TWIG_BASE_DIR . '/lib' ),
