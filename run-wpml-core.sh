@@ -9,5 +9,11 @@ rm -rf ./build/*
 
 vendor/humbug/php-scoper/bin/php-scoper add-prefix -vv --no-interaction --prefix=$TWIG_SCOPER_PREFIX
 
-rm -rf "${WPML_PLUGIN_PATH}/lib/twig/*"
-cp -r ./build/* "${WPML_PLUGIN_PATH}/lib/twig"
+WPML_LIB_PATH="${WPML_PLUGIN_PATH}/lib/twig"
+
+if [ ! -d "WPML_LIB_PATH" ]; then
+    mkdir -p "$WPML_LIB_PATH"
+fi
+
+rm -rf "${WPML_LIB_PATH}/*"
+cp -r ./build/* "${WPML_LIB_PATH}"
