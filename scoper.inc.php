@@ -100,6 +100,14 @@ namespace {
 					$contents
 				);
 
+				// Remove class_alias which becomes redundant (without scoping, it produces conflicts; with it,
+				// it would point the class to itself and generate a warning).
+				$contents = preg_replace(
+					'/(\\\\class_alias\s*\(\s*\'' . getFormattedPrefix( 2, false ) . '\\\\\\\\([\\\\\w]+)\'\s*,\s*\')\2(\'[^;]+;)/m',
+					'/* class_alias removed from here because it becomes redundant with adding a scope to Twig */',
+					$contents
+				);
+
 				return $contents;
 			},
 
