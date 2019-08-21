@@ -168,6 +168,22 @@ namespace {
 
 				return $contents;
 			},
+
+			/**
+			 * Patcher for \$prefix\Twig\Environment.
+			 */
+			function ( string $filePath, string $prefix, string $contents ): string {
+				// Fix the usage of Twig\\Extension\\AbstractExtension.
+				if ( \OTGS\TwigPrefixer\endsWith( $filePath, 'src' . DIRECTORY_SEPARATOR . 'Environment.php' ) ) {
+					$contents = preg_replace(
+						'/(Twig\\\\.+\\\\AbstractExtension)/m',
+						getFormattedPrefix( 2, false ) . '\\\\\\\\$1',
+						$contents
+					);
+				}
+
+				return $contents;
+			},
 		],
 	];
 
