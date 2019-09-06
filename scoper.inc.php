@@ -1,4 +1,6 @@
 <?php
+/** @noinspection PhpUndefinedClassInspection */
+/** @noinspection PhpLanguageLevelInspection */
 
 declare(strict_types=1);
 
@@ -55,7 +57,7 @@ namespace {
 	use function OTGS\TwigPrefixer\getPrefix;
 	use const OTGS\TwigPrefixer\TWIG_BASE_DIR;
 
-	echo "Loading twig-scoper config with prefix: " . getPrefix() . "\n\n";
+	echo 'Loading twig-scoper config with prefix: ' . getPrefix() . "\n\n";
 
 	return [
 
@@ -67,8 +69,20 @@ namespace {
 
 		// For more see: https://github.com/humbug/php-scoper#finders-and-paths
 		'finders' => [
-			Finder::create()->files()->in( TWIG_BASE_DIR . '/lib' ),
-			Finder::create()->files()->in( TWIG_BASE_DIR . '/src' ),
+			Finder::create()
+				->files()
+				->notName( [
+					'IntegrationTestCase.php',
+					'NodeTestCase.php',
+				] )
+				->in( TWIG_BASE_DIR . '/lib' ),
+			Finder::create()
+				->files()
+				->notName( [
+					'IntegrationTestCase.php',
+					'NodeTestCase.php',
+				] )
+				->in( TWIG_BASE_DIR . '/src' ),
 		],
 
 		// When scoping PHP files, there will be scenarios where some of the code being scoped indirectly references the
@@ -82,7 +96,7 @@ namespace {
 			/**
 			 * Patcher for all files.
 			 */
-			function ( string $filePath, string $prefix, string $contents ): string {
+			static function ( string $filePath, string $prefix, string $contents ): string {
 				// Hardcoded class names in code
 				$contents = preg_replace(
 					'/("|\')((\\\\){1,2}Twig(\\\\){1,2}[A-Za-z\\\\]+)\1/m',
@@ -110,7 +124,7 @@ namespace {
 			/**
 			 * Patcher for \$prefix\Twig\Node\ModuleNode.
 			 */
-			function ( string $filePath, string $prefix, string $contents ): string {
+			static function ( string $filePath, string $prefix, string $contents ): string {
 				if ( \OTGS\TwigPrefixer\endsWith( $filePath, 'src' . DIRECTORY_SEPARATOR . 'Node' . DIRECTORY_SEPARATOR . 'ModuleNode.php' ) ) {
 					// Fix template compilation - add the namespace to the template file.
 					$contents = preg_replace(
@@ -135,7 +149,7 @@ namespace {
 			/**
 			 * Patcher for \$prefix\Twig\Extension\CoreExtension.
 			 */
-			function ( string $filePath, string $prefix, string $contents ): string {
+			static function ( string $filePath, string $prefix, string $contents ): string {
 				// Fix the usage of global twig_* and _twig_* functions.
 				if ( \OTGS\TwigPrefixer\endsWith( $filePath, 'src' . DIRECTORY_SEPARATOR . 'Extension' . DIRECTORY_SEPARATOR . 'CoreExtension.php' ) ) {
 					$contents = preg_replace(
@@ -172,7 +186,7 @@ namespace {
 			/**
 			 * Patcher for \$prefix\Twig\Environment.
 			 */
-			function ( string $filePath, string $prefix, string $contents ): string {
+			static function ( string $filePath, string $prefix, string $contents ): string {
 				// Fix the usage of Twig\\Extension\\AbstractExtension.
 				if ( \OTGS\TwigPrefixer\endsWith( $filePath, 'src' . DIRECTORY_SEPARATOR . 'Environment.php' ) ) {
 					$contents = preg_replace(
