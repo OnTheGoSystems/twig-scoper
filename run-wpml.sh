@@ -15,5 +15,5 @@ if [ ! -d "WPML_LIB_PATH" ]; then
     mkdir -p "$WPML_LIB_PATH"
 fi
 
-rm -rf "${WPML_LIB_PATH}/*"
+rm -rf "${WPML_LIB_PATH:?}/*"
 cp -r ./build/* "${WPML_LIB_PATH}"
