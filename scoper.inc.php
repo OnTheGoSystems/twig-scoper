@@ -129,7 +129,7 @@ namespace {
 					// Fix template compilation - add the namespace to the template file.
 					$contents = preg_replace(
 						'/(compileClassHeader\s*\([^\)]+\)\s*{\s*\s*\$compiler\s*->\s*write\s*\(\s*)"\\\\n\\\\n"(\s*\)\s*;)/m',
-						'$1"\\n\\nnamespace ' . getFormattedPrefix( 1, false ) . ';\\n\\n"$2',
+						'$1"\\n\\nnamespace ' . getFormattedPrefix( 2, false ) . ';\\n\\n"$2',
 						$contents
 					);
 
